@@ -1,9 +1,12 @@
 pipeline {
-    agent { docker 'maven:3.3.3' }
+    agent any
+    triggers {
+        cron('H/2 * * * *')
+    }
     stages {
-        stage('build') {
+        stage('Example') {
             steps {
-                sh 'mvn --version'
+                echo 'Hello World'
             }
         }
     }
